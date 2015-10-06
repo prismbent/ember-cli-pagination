@@ -73,7 +73,7 @@ export default Ember.ArrayProxy.extend(PageMixin, Ember.Evented, ArrayProxyPromi
     var modelName = this.get('modelName');
 
     var ops = this.get('paramsForBackend');
-    var res = store.find(modelName, ops);
+    var res = store.query?store.query(modelName, ops):store.find(modelName, ops) ;
 
     return res;
   },
